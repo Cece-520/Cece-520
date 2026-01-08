@@ -1,4 +1,4 @@
-# Hi there! 👋 I'm Cece
+# Hi there! 👋 I'm Anh 
 
 Welcome to my GitHub profile! I'm a passionate developer focused on building innovative solutions and learning new technologies.
 
@@ -12,10 +12,8 @@ Welcome to my GitHub profile! I'm a passionate developer focused on building inn
 ## 🛠️ Skills & Technologies
 
 ### Languages
-![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Java](https://img.shields.io/badge/-Java-007396?style=flat-square&logo=java&logoColor=white)
+
+I work primarily with **Python, SQL, and C++**
 
 ### Frameworks & Tools
 ![React](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=black)
@@ -27,12 +25,6 @@ Welcome to my GitHub profile! I'm a passionate developer focused on building inn
 ![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white)
 ![MySQL](https://img.shields.io/badge/-MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
-
-## 📊 GitHub Stats
-
-![Cece's GitHub stats](https://github-readme-stats.vercel.app/api?username=Cece-520&show_icons=true&theme=radical)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Cece-520&layout=compact&theme=radical)
 
 ## 🔭 Current Projects
 
@@ -54,10 +46,9 @@ Check out some of my notable projects:
 
 ## 📫 Get In Touch
 
-- 💼 LinkedIn: [Connect with me on LinkedIn](https://linkedin.com/in/your-profile)
-- 🐦 Twitter: [@YourHandle](https://twitter.com/your-handle)
-- 📧 Email: Feel free to reach out through GitHub
-- 🌐 Portfolio: Visit my portfolio website (link to be added)
+- 💼 LinkedIn: [linkedin.com/in/somethinganh](https://www.linkedin.com/in/somethinganh)
+- 📧 Email: tramanhpham520@gmail.com
+- 🌐 Resume: [Checkout my Resume](./Anh_Pham_Resume.pdf)
 
 ## 🤝 Let's Collaborate!
 
