@@ -16,6 +16,17 @@ Here are some ideas to get you started:
 -->
 
 
+---
+
+## 🤖 Automatic Repository Updates
+
+This README automatically updates with a list of all my repositories, including pinned ones!
+
+The list is updated:
+- Daily at midnight UTC
+- Whenever changes are pushed to the main branch
+- Manually via workflow dispatch
+
 <!-- REPOSITORY-LIST:START -->
 <!-- This section is auto-updated by GitHub Actions -->
 <!-- REPOSITORY-LIST:END -->
