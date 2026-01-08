@@ -14,3 +14,8 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+
+
+<!-- REPOSITORY-LIST:START -->
+<!-- This section is auto-updated by GitHub Actions -->
+<!-- REPOSITORY-LIST:END -->

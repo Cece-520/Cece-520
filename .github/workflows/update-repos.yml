@@ -1,0 +1,119 @@
+name: Update Repository List
+
+on:
+  schedule:
+    # Run every day at midnight UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Update README with repository list
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const owner = context.repo.owner;
+            
+            // Fetch all repositories
+            const { data: repos } = await github.rest.repos.listForUser({
+              username: owner,
+              sort: 'updated',
+              per_page: 100
+            });
+            
+            // Fetch pinned repositories using GraphQL
+            const pinnedQuery = `
+              query {
+                user(login: "${owner}") {
+                  pinnedItems(first: 6, types: REPOSITORY) {
+                    nodes {
+                      ... on Repository {
+                        name
+                      }
+                    }
+                  }
+                }
+              }
+            `;
+            
+            let pinnedRepos = [];
+            try {
+              const pinnedResult = await github.graphql(pinnedQuery);
+              pinnedRepos = pinnedResult.user.pinnedItems.nodes.map(node => node.name);
+            } catch (error) {
+              console.log('Could not fetch pinned repos:', error.message);
+            }
+            
+            // Filter and format repositories
+            let repoList = '## 📚 My Repositories\n\n';
+            
+            // Add pinned repositories first
+            if (pinnedRepos.length > 0) {
+              repoList += '### 📌 Pinned Repositories\n\n';
+              for (const repo of repos) {
+                if (pinnedRepos.includes(repo.name)) {
+                  const emoji = repo.language === 'JavaScript' ? '🟨' : 
+                               repo.language === 'Python' ? '🐍' : 
+                               repo.language === 'Java' ? '☕' : 
+                               repo.language === 'TypeScript' ? '🔷' : 
+                               repo.language === 'Go' ? '🐹' : '📦';
+                  const desc = repo.description || 'No description provided';
+                  repoList += `- **[${repo.name}](${repo.html_url})** ${emoji} - ${desc}\n`;
+                }
+              }
+              repoList += '\n';
+            }
+            
+            // Add all other repositories
+            repoList += '### 📂 All Repositories\n\n';
+            for (const repo of repos.slice(0, 20)) {
+              if (!repo.fork) {
+                const emoji = repo.language === 'JavaScript' ? '🟨' : 
+                             repo.language === 'Python' ? '🐍' : 
+                             repo.language === 'Java' ? '☕' : 
+                             repo.language === 'TypeScript' ? '🔷' : 
+                             repo.language === 'Go' ? '🐹' : '📦';
+                const desc = repo.description || 'No description provided';
+                const stars = repo.stargazers_count > 0 ? ` ⭐ ${repo.stargazers_count}` : '';
+                repoList += `- **[${repo.name}](${repo.html_url})** ${emoji} - ${desc}${stars}\n`;
+              }
+            }
+            
+            // Read current README
+            let readme = fs.readFileSync('README.md', 'utf8');
+            
+            // Update or insert repository list
+            const startMarker = '<!-- REPOSITORY-LIST:START -->';
+            const endMarker = '<!-- REPOSITORY-LIST:END -->';
+            
+            if (readme.includes(startMarker)) {
+              const before = readme.substring(0, readme.indexOf(startMarker) + startMarker.length);
+              const after = readme.substring(readme.indexOf(endMarker));
+              readme = before + '\n' + repoList + endMarker + after.substring(endMarker.length);
+            } else {
+              readme += '\n' + startMarker + '\n' + repoList + endMarker + '\n';
+            }
+            
+            // Write updated README
+            fs.writeFileSync('README.md', readme);
+            
+      - name: Commit changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add README.md
+          git diff --staged --quiet || git commit -m "Update repository list"
+          git push
