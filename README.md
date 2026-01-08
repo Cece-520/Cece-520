@@ -1,16 +1,18 @@
-## Hi there 👋
+## Hi, I'm Anh 👋
 
-<!--
-**Cece-520/Cece-520** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+I'm a Computer Science student with a strong interest in data analysis, software development, and applying technology to real-world problems.
 
-Here are some ideas to get you started:
+I work primarily with **Python, SQL, and C++**, and I enjoy building projects that involve data cleaning, automation, and exploratory analysis. Some of my work focuses on transforming raw data into meaningful insights and building practical tools that improve workflows.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+I'm especially interested in:
+- Data analytics & visualization
+- Machine learning fundamentals
+- Healthcare & social-impact applications
+- Writing clean, reliable, and maintainable code
+
+Currently, I'm focused on expanding my technical skills through hands-on projects and research opportunities, and I'm always open to learning new tools and technologies.
+
+### 🔗 Connect with Me
+- **LinkedIn:** [linkedin.com/in/somethinganh](https://www.linkedin.com/in/somethinganh)
+- **Resume:** [View Resume](./Anh_Pham_Resume.pdf)
+
