@@ -75,12 +75,11 @@ jobs:
             // Add pinned repositories first
             if (pinnedRepos.length > 0) {
               repoList += '### 📌 Pinned Repositories\n\n';
-              for (const repo of repos) {
-                if (pinnedRepos.includes(repo.name)) {
-                  const emoji = getLanguageEmoji(repo.language);
-                  const desc = repo.description || 'No description provided';
-                  repoList += `- **[${repo.name}](${repo.html_url})** ${emoji} - ${desc}\n`;
-                }
+              const pinnedRepoObjects = repos.filter(repo => pinnedRepos.includes(repo.name));
+              for (const repo of pinnedRepoObjects) {
+                const emoji = getLanguageEmoji(repo.language);
+                const desc = repo.description || 'No description provided';
+                repoList += `- **[${repo.name}](${repo.html_url})** ${emoji} - ${desc}\n`;
               }
               repoList += '\n';
             }
