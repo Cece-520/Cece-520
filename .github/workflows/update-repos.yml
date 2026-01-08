@@ -27,6 +27,18 @@ jobs:
             const fs = require('fs');
             const owner = context.repo.owner;
             
+            // Helper function to get language emoji
+            function getLanguageEmoji(language) {
+              const emojiMap = {
+                'JavaScript': '🟨',
+                'Python': '🐍',
+                'Java': '☕',
+                'TypeScript': '🔷',
+                'Go': '🐹'
+              };
+              return emojiMap[language] || '📦';
+            }
+            
             // Fetch all repositories
             const { data: repos } = await github.rest.repos.listForUser({
               username: owner,
@@ -65,11 +77,7 @@ jobs:
               repoList += '### 📌 Pinned Repositories\n\n';
               for (const repo of repos) {
                 if (pinnedRepos.includes(repo.name)) {
-                  const emoji = repo.language === 'JavaScript' ? '🟨' : 
-                               repo.language === 'Python' ? '🐍' : 
-                               repo.language === 'Java' ? '☕' : 
-                               repo.language === 'TypeScript' ? '🔷' : 
-                               repo.language === 'Go' ? '🐹' : '📦';
+                  const emoji = getLanguageEmoji(repo.language);
                   const desc = repo.description || 'No description provided';
                   repoList += `- **[${repo.name}](${repo.html_url})** ${emoji} - ${desc}\n`;
                 }
@@ -81,11 +89,7 @@ jobs:
             repoList += '### 📂 All Repositories\n\n';
             for (const repo of repos.slice(0, 20)) {
               if (!repo.fork) {
-                const emoji = repo.language === 'JavaScript' ? '🟨' : 
-                             repo.language === 'Python' ? '🐍' : 
-                             repo.language === 'Java' ? '☕' : 
-                             repo.language === 'TypeScript' ? '🔷' : 
-                             repo.language === 'Go' ? '🐹' : '📦';
+                const emoji = getLanguageEmoji(repo.language);
                 const desc = repo.description || 'No description provided';
                 const stars = repo.stargazers_count > 0 ? ` ⭐ ${repo.stargazers_count}` : '';
                 repoList += `- **[${repo.name}](${repo.html_url})** ${emoji} - ${desc}${stars}\n`;
@@ -102,7 +106,7 @@ jobs:
             if (readme.includes(startMarker)) {
               const before = readme.substring(0, readme.indexOf(startMarker) + startMarker.length);
               const after = readme.substring(readme.indexOf(endMarker));
-              readme = before + '\n' + repoList + endMarker + after.substring(endMarker.length);
+              readme = before + '\n' + repoList + '\n' + after;
             } else {
               readme += '\n' + startMarker + '\n' + repoList + endMarker + '\n';
             }
