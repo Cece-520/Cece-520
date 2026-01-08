@@ -54,10 +54,10 @@ Check out some of my notable projects:
 
 ## 📫 Get In Touch
 
-- 💼 LinkedIn: [Connect with me](https://linkedin.com/in/cece-520)
-- 🐦 Twitter: [@Cece520](https://twitter.com/cece520)
+- 💼 LinkedIn: [Connect with me on LinkedIn](https://linkedin.com/in/your-profile)
+- 🐦 Twitter: [@YourHandle](https://twitter.com/your-handle)
 - 📧 Email: Feel free to reach out through GitHub
-- 🌐 Portfolio: [Coming Soon]
+- 🌐 Portfolio: Visit my portfolio website (link to be added)
 
 ## 🤝 Let's Collaborate!
 
