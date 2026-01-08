@@ -39,10 +39,11 @@ Check out some of my notable projects:
 
 ## 💡 What I'm Learning
 
-- 🔥 Advanced software architecture patterns
-- ☁️ Cloud computing (AWS/Azure/GCP)
-- 🤖 Machine Learning and AI technologies
-- 🔐 Cybersecurity best practices
+- 📊 Data analysis & exploratory data analysis (EDA)
+- 🐍 Python for data processing and automation
+- 🗄️ SQL and database systems
+- 📈 Data visualization & statistics
+- 🤖 Machine learning fundamentals
 
 ## 📫 Get In Touch
 
